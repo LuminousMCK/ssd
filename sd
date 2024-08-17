@@ -5,3 +5,31 @@ cd hyperland
 cmake -B build -DCMAKE_BUILD_TYPE=Release
 make -C build
 sudo make -C build install
+
+conky.config = {
+    alignment = 'top_middle',
+    gap_y = 10,
+    minimum_width = 300,
+    minimum_height = 50,
+    maximum_width = 300,
+    maximum_height = 50,
+    own_window = true,
+    own_window_type = 'override',
+    own_window_transparent = true,
+    double_buffer = true,
+    update_interval = 1,
+    draw_shades = false,
+    draw_outline = false,
+    draw_borders = false,
+    draw_graph_borders = false,
+    use_xft = true,
+    font = 'Roboto:size=10',
+    override_utf8_locale = true,
+    use_spacer = 'none',
+    text_buffer_size = 2048,
+}
+
+conky.text = [[
+${color white}${font Roboto:bold:size=12}${time %H:%M:%S}${font}
+${color grey}Notifications: ${execi 60 notify-send "Hello Dynamic Island!"}
+]]
