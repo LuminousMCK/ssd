@@ -1,3 +1,7 @@
 sudo pacman -S ffmpeg feh imagemagick xrandr xdg-utils bash sed
 sudo pacman -S wayland wayland-protocols wlroots xorg-xwayland git cmake gcc
 git clone https://github.com/hyperland/hyperland.git
+cd hyperland
+cmake -B build -DCMAKE_BUILD_TYPE=Release
+make -C build
+sudo make -C build install
