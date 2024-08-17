@@ -30,6 +30,7 @@ conky.config = {
 }
 
 conky.text = [[
-${color white}${font Roboto:bold:size=12}${time %H:%M:%S}${font}
-${color grey}Notifications: ${execi 60 notify-send "Hello Dynamic Island!"}
+${color white}${font Roboto:bold:size=12}${time %H:%M:%S}${font} ${alignr}${execi 1 playerctl metadata title}
+${color grey}CPU: ${cpu}%  ${alignr}RAM: ${mem} / ${memmax}
+${color grey}Wi-Fi: ${wireless_essid wlan0} - ${wireless_link_qual_perc wlan0}% ${alignr}Vol: ${exec amixer get Master | grep -o "[0-9]*%" | head -n1}
 ]]
