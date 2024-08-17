@@ -1,1 +1,2 @@
 sudo pacman -S ffmpeg feh imagemagick xrandr xdg-utils bash sed
+sudo pacman -S wayland wayland-protocols wlroots xorg-xwayland git cmake gcc
