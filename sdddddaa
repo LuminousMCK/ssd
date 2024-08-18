@@ -1,0 +1,79 @@
+# Cấu hình Picom với hiệu ứng động và phong cách macOS
+
+# Hiệu ứng bóng đổ cho cửa sổ
+shadow = true
+shadow-radius = 15          # Kích thước bóng đổ
+shadow-offset-x = -15       # Độ lệch bóng đổ theo chiều ngang
+shadow-offset-y = -15       # Độ lệch bóng đổ theo chiều dọc
+shadow-opacity = 0.8        # Độ mờ của bóng đổ
+shadow-color = "#000000"    # Màu bóng đổ
+shadow-exclude = [
+    "name = 'Notification'",
+    "class_g = 'Conky'",
+    "class_g = 'rofi'",
+    "class_g = 'dmenu'",
+    "window_type = 'dock'",
+    "window_type = 'desktop'",
+    "_GTK_FRAME_EXTENTS@:c"
+]
+
+# Hiệu ứng làm mờ (blur) nền
+blur-method = "dual_kawase"
+blur-strength = 10          # Độ mạnh của hiệu ứng làm mờ
+blur-background-fixed = true
+blur-background-exclude = [
+    "window_type = 'dock'",
+    "window_type = 'desktop'",
+    "class_g = 'rofi'",
+    "class_g = 'dmenu'",
+    "class_g = 'Conky'",
+    "class_g = 'Plank'"
+]
+
+# Hiệu ứng fade khi mở/đóng cửa sổ
+fading = true
+fade-delta = 12
+fade-in-step = 0.03
+fade-out-step = 0.03
+fade-exclude = ["class_g = 'rofi'", "class_g = 'dmenu'", "class_g = 'Plank'"]
+
+# Hiệu ứng chuyển động khi mở/đóng cửa sổ
+animation-for-open-window = true
+animation-stiffness = 150.0  # Tốc độ hiệu ứng
+animation-wipe-time = 300    # Thời gian hiệu ứng (ms)
+animation-type = zoom        # Loại hiệu ứng: zoom, slide, fade
+
+# Hiệu ứng chuyển cảnh giữa các cửa sổ và workspace
+vsync = true
+vsync-use-glfinish = true
+use-damage = false
+resize-delta = 0.3
+focus-exclude = ["class_g = 'dmenu'", "class_g = 'rofi'"]
+
+# Hiệu ứng đổ bóng cho menu và thông báo
+shadow-radius = 20
+shadow-offset-x = -10
+shadow-offset-y = -10
+shadow-opacity = 0.7
+shadow-exclude = ["class_g = 'rofi'", "class_g = 'dmenu'", "window_type = 'dock'", "window_type = 'desktop'", "name *= 'Notification'"]
+
+# Hiệu ứng opacity cho các thanh và dock
+opacity-rule = [
+    "95:class_g = 'Polybar'",
+    "90:class_g = 'Plank'",
+    "85:class_g = 'Tint2'"
+]
+
+# Tinh chỉnh thêm để tạo phong cách macOS
+# Thay đổi độ mờ của cửa sổ không hoạt động
+inactive-opacity = 0.8
+active-opacity = 0.9
+
+# Hiệu ứng khi di chuyển cửa sổ (wobbly windows)
+# Picom không hỗ trợ trực tiếp hiệu ứng wobbly, nhưng có thể thử nghiệm với công cụ khác như `x11-wobbly`
+
+# Kích hoạt vsync để giảm hiện tượng xé hình
+vsync = true
+
+# Tùy chọn khác
+# Tùy chỉnh thêm theo sở thích cá nhân
