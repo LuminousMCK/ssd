@@ -34,3 +34,54 @@ ${color white}${font Roboto:bold:size=12}${time %H:%M:%S}${font} ${alignr}${exec
 ${color grey}CPU: ${cpu}%  ${alignr}RAM: ${mem} / ${memmax}
 ${color grey}Wi-Fi: ${wireless_essid wlan0} - ${wireless_link_qual_perc wlan0}% ${alignr}Vol: ${exec amixer get Master | grep -o "[0-9]*%" | head -n1}
 ]]
+
+
+
+
+# Hyprland Configuration with Super Cool Animations
+
+# Hiệu ứng đóng/mở cửa sổ
+animation {
+    duration = 200
+    in = cubic-bezier(0.3, 1.5, 0.5, 1)
+    out = cubic-bezier(0.3, 0, 0.5, 1)
+    resize = cubic-bezier(0.4, 0, 0.2, 1)
+}
+
+# Hiệu ứng di chuyển cửa sổ
+move {
+    style = cubic-bezier(0.4, 0, 0.2, 1)
+    delay = 50
+}
+
+# Hiệu ứng chuyển cảnh giữa các không gian làm việc
+workspace {
+    animation = slide
+    duration = 300
+    easing = cubic-bezier(0.3, 1.5, 0.5, 1)
+}
+
+# Hiệu ứng chuyển đổi cửa sổ (Alt-Tab)
+alt-tab {
+    style = fade
+    duration = 250
+}
+
+# Hiệu ứng mờ cửa sổ
+blur {
+    style = gaussian
+    strength = 15
+}
+
+# Cấu hình đa hiệu ứng cho cửa sổ
+window {
+    open = fade, slide-up
+    close = fade, slide-down
+    minimize = zoom-out
+    restore = zoom-in
+}
+
+# Tăng tốc GPU để đảm bảo hiệu suất
+renderer {
+    backend = glx
+}
